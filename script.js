@@ -79,7 +79,7 @@ function finishTest() {
     messageEl.className = 'message success';
 }
 
-function startTest() {
+function startTest(preserveInput = false) {
     pickRandomText();
     isRunning = true;
     hasCompleted = false;
@@ -87,7 +87,7 @@ function startTest() {
     elapsedSeconds = 0;
     correctChars = 0;
     typedChars = 0;
-    inputField.value = '';
+    if (!preserveInput) inputField.value = '';
     inputField.disabled = false;
     inputField.focus();
     startBtn.disabled = true;
@@ -126,7 +126,11 @@ function resetTest() {
 }
 
 inputField.addEventListener('input', () => {
-    if (!isRunning) return;
+    if (!isRunning) {
+        const initialValue = inputField.value;
+        if (initialValue.length === 0) return;
+        startTest(true);
+    }
 
     let typedValue = inputField.value;
 
