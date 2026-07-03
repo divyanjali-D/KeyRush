@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Type Speed Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container login-page">
+        <div class="login-card">
+            <h2>Member Login</h2>
+            <form id="loginForm" class="login-fields" action="/login" method="POST">
+                <input type="text" name="email" id="username" placeholder="Email" required>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <button class="login-button" type="submit">Log In</button>
+            </form>
+            <p class="login-error" id="loginError"></p>
+        </div>
+    </div>
+
+    <script>
+        const loginError = document.getElementById('loginError');
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('error')) {
+            loginError.textContent = decodeURIComponent(params.get('error'));
+        }
+    </script>
+</body>
+</html>
