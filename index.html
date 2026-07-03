@@ -10,15 +10,6 @@
     <div class="container">
         <h1>⌨️ Type Speed Test</h1>
 
-        <div class="login-card">
-            <h2>Login</h2>
-            <div class="login-fields">
-                <input type="text" id="username" placeholder="Username">
-                <input type="password" id="password" placeholder="Password">
-            </div>
-            <button class="login-button" type="button">Log In</button>
-        </div>
-
         <div class="stats">
             <div class="stat-box">
                 <div class="stat-label">WPM</div>
@@ -38,7 +29,7 @@
             </div>
         </div>
 
-        <div class="test-area">
+        <div class="test-area" id="typing">
             <div class="display-text" id="displayText"></div>
             <div class="input-section">
                 <input 
@@ -54,6 +45,9 @@
         </div>
 
         <div class="message" id="message"></div>
+        <div class="login-back" style="margin-top: 20px; text-align: center;">
+            <a href="login.html">Back to login</a>
+        </div>
     </div>
 
     <script src="script.js"></script>
